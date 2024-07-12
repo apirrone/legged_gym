@@ -3,7 +3,7 @@ from legged_gym.envs.base.legged_robot_config import LeggedRobotCfg, LeggedRobot
 
 class BdxRoughCfg(LeggedRobotCfg):
     class env(LeggedRobotCfg.env):
-        num_envs = 4096
+        num_envs = 10
         num_observations = 57
         num_actions = 15
 
@@ -60,7 +60,15 @@ class BdxRoughCfg(LeggedRobotCfg):
         file = "{LEGGED_GYM_ROOT_DIR}/resources/robots/bdx/urdf/bdx.urdf"
         name = "bdx"
         foot_name = "foot"
-        terminate_after_contacts_on = ["body_module"]
+        terminate_after_contacts_on = [
+            "body_module",
+            "head",
+            "leg_module_2",
+            "leg_module_3",
+            "leg_module_4",
+            "left_antenna_assembly",
+            "right_antenna_assembly",
+        ]
         flip_visual_attachments = False
         self_collisions = 1  # 1 to disable, 0 to enable...bitwise filter
 
