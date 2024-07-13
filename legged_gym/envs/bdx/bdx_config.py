@@ -42,20 +42,22 @@ class BdxRoughCfg(LeggedRobotCfg):
         }
 
     class control(LeggedRobotCfg.control):
-        # TODO Eyeballed values
+        # TODO These are probably critical.
+        # Too low now, trouble lifting legs
+        # Before, with 10 stiffness and 1 damping, the robot could walk
 
         # PD Drive parameters:
         stiffness = {
-            "hip_yaw": 1.0,
-            "hip_roll": 1.0,
-            "hip_pitch": 1.0,
-            "knee": 1.0,
-            "ankle": 1.0,
-            "neck_pitch": 1.0,
-            "head_pitch": 1.0,
-            "head_yaw": 1.0,
-            "left_antenna": 1.0,
-            "right_antenna": 1.0,
+            "hip_yaw": 5.0,
+            "hip_roll": 5.0,
+            "hip_pitch": 5.0,
+            "knee": 5.0,
+            "ankle": 5.0,
+            "neck_pitch": 5.0,
+            "head_pitch": 5.0,
+            "head_yaw": 5.0,
+            "left_antenna": 5.0,
+            "right_antenna": 5.0,
         }  # [N*m/rad]
 
         damping = {
@@ -96,7 +98,7 @@ class BdxRoughCfg(LeggedRobotCfg):
         soft_dof_pos_limit = 0.95
         soft_dof_vel_limit = 0.9
         soft_torque_limit = 0.9
-        max_contact_force = 300.0
+        max_contact_force = 100.0
         only_positive_rewards = False
         base_height_target = 0.15
 
