@@ -13,8 +13,8 @@ class BdxRoughCfg(LeggedRobotCfg):
 
     class commands(LeggedRobotCfg.commands):
         class ranges(LeggedRobotCfg.commands.ranges):
-            lin_vel_x = [-0.1, 0.1]  # min max [m/s]
-            lin_vel_y = [-0.1, 0.1]  # min max [m/s]
+            lin_vel_x = [-0.5, 0.5]  # min max [m/s]
+            lin_vel_y = [-0.3, 0.3]  # min max [m/s]
             ang_vel_yaw = [-0.05, 0.05]  # min max [rad/s]
             heading = [-3.14, 3.14]
 
@@ -43,16 +43,16 @@ class BdxRoughCfg(LeggedRobotCfg):
 
         # PD Drive parameters:
         stiffness = {
-            "hip_yaw": 50.0,
-            "hip_roll": 50.0,
-            "hip_pitch": 50.0,
-            "knee": 50.0,
-            "ankle": 50.0,
-            "neck_pitch": 50.0,
-            "head_pitch": 50.0,
-            "head_yaw": 50.0,
-            "left_antenna": 50.0,
-            "right_antenna": 50.0,
+            "hip_yaw": 10.0,
+            "hip_roll": 10.0,
+            "hip_pitch": 10.0,
+            "knee": 10.0,
+            "ankle": 10.0,
+            "neck_pitch": 10.0,
+            "head_pitch": 10.0,
+            "head_yaw": 10.0,
+            "left_antenna": 10.0,
+            "right_antenna": 10.0,
         }  # [N*m/rad]
 
         damping = {
@@ -108,7 +108,7 @@ class BdxRoughCfg(LeggedRobotCfg):
             dof_vel = -0.0
             ang_vel_xy = -0.0
             feet_contact_forces = -0.0
-            # head_behavior = 0.05
+            head_behavior = 0.05
 
 
 class BdxRoughCfgPPO(LeggedRobotCfgPPO):
