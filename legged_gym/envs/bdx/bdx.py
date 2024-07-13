@@ -23,7 +23,8 @@ class Bdx(LeggedRobot):
         head_diff = torch.square(head_pos - head_default_pos)
         return torch.sum(head_diff, dim=1)
 
-    # def _reward_close_to_init_pos(self):
-    #     # Incentivize the robot to stay close to the initial position
+    def _reward_close_to_init_pos(self):
+        # penalize the dofs for being too far from the default position
 
-    #     diff = torch.square(self.dof_pos - self.default_dof_pos)
+        diff = torch.square(self.dof_pos - self.default_dof_pos)
+        return torch.sum(diff, dim=1)

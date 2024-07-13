@@ -3,7 +3,7 @@ from legged_gym.envs.base.legged_robot_config import LeggedRobotCfg, LeggedRobot
 
 class BdxRoughCfg(LeggedRobotCfg):
     class env(LeggedRobotCfg.env):
-        num_envs = 1
+        num_envs = 20
         num_observations = 57
         num_actions = 15
 
@@ -114,6 +114,7 @@ class BdxRoughCfg(LeggedRobotCfg):
             head_behavior = -0.1
             base_height = -0.25
             orientation = -0.1
+            close_to_init_pos = -0.1
 
 
 class BdxRoughCfgPPO(LeggedRobotCfgPPO):
