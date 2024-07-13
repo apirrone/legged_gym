@@ -19,7 +19,7 @@ class BdxRoughCfg(LeggedRobotCfg):
             lin_vel_x = [0, 0.3]  # min max [m/s]
             lin_vel_y = [-0.15, 0.15]  # min max [m/s]
             ang_vel_yaw = [-0.1, 0.1]  # min max [rad/s]s
-            heading = [0, 0]
+            heading = [-3.14, 3.14]
 
     class init_state(LeggedRobotCfg.init_state):
         pos = [0.0, 0.0, 0.19]  # x,y,z [m]
@@ -103,11 +103,11 @@ class BdxRoughCfg(LeggedRobotCfg):
         class scales(LeggedRobotCfg.rewards.scales):
             termination = -200.0
             tracking_ang_vel = 1.0
-            tracking_lin_vel = 2.0
+            # tracking_lin_vel = 2.0
             torques = -5.0e-6
             dof_acc = -2.0e-7
             lin_vel_z = -0.5
-            feet_air_time = 3.0
+            feet_air_time = 5.0
             dof_pos_limits = -1.0
             no_fly = 0.25
             dof_vel = -0.0
