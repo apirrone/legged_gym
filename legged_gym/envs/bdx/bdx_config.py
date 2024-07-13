@@ -101,6 +101,7 @@ class BdxRoughCfg(LeggedRobotCfg):
         max_contact_force = 100.0
         only_positive_rewards = False
         base_height_target = 0.15
+        tracking_sigma = 0.01  # tracking reward = exp(-error^2/sigma)
 
         class scales(LeggedRobotCfg.rewards.scales):
             termination = -200.0
