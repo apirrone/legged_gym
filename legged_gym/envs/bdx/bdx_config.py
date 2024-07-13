@@ -108,7 +108,7 @@ class BdxRoughCfg(LeggedRobotCfg):
             dof_vel = -0.0
             ang_vel_xy = -0.0
             feet_contact_forces = -0.0
-            head_behavior = 0.05
+            # head_behavior = 0.05
 
 
 class BdxRoughCfgPPO(LeggedRobotCfgPPO):
