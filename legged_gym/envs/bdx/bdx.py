@@ -17,10 +17,11 @@ class Bdx(LeggedRobot):
         return 1.0 * single_contact
 
     def _reward_head_behavior(self):
+        # penalize the head for being too far from the default position
         head_default_pos = self.default_dof_pos[:, -5:]
         head_pos = self.dof_pos[:, -5:]
         head_diff = torch.square(head_pos - head_default_pos)
-        return -torch.sum(head_diff, dim=1)
+        return torch.sum(head_diff, dim=1)
 
     # def _reward_close_to_init_pos(self):
     #     # Incentivize the robot to stay close to the initial position
