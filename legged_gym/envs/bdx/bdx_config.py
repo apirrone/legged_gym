@@ -110,9 +110,9 @@ class BdxRoughCfg(LeggedRobotCfg):
             torques = -5.0e-6
             dof_acc = -2.0e-7
             lin_vel_z = -0.5
-            feet_air_time = 10.0
+            # feet_air_time = 5.0
             dof_pos_limits = -1.0
-            no_fly = 0.25
+            no_fly = 0.1
             dof_vel = -0.0
             ang_vel_xy = -0.0
             feet_contact_forces = -0.0
