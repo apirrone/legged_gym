@@ -112,7 +112,7 @@ class BdxRoughCfg(LeggedRobotCfg):
             lin_vel_z = -0.5
             feet_air_time = 0
             dof_pos_limits = -1.0
-            no_fly = 0.1
+            # no_fly = 0.1
             dof_vel = -0.0
             ang_vel_xy = -0.0
             feet_contact_forces = -0.0
