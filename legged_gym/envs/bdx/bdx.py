@@ -20,4 +20,4 @@ class Bdx(LeggedRobot):
         head_default_pos = self.default_dof_pos[:, -5:]
         head_pos = self.dof_pos[:, -5:]
         head_diff = torch.abs(head_pos - head_default_pos)
-        return -torch.sum(head_diff)
+        return -torch.sum(head_diff, dim=1)
