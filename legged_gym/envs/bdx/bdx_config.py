@@ -12,13 +12,14 @@ class BdxRoughCfg(LeggedRobotCfg):
         measure_heights = False
 
     class commands(LeggedRobotCfg.commands):
-        num_commands = 3  # default: lin_vel_x, lin_vel_y, ang_vel_yaw, heading (in heading mode ang_vel_yaw is recomputed from heading error)
-        heading_command = False  # if true: compute ang vel command from heading error
+        num_commands = 4  # default: lin_vel_x, lin_vel_y, ang_vel_yaw, heading (in heading mode ang_vel_yaw is recomputed from heading error)
+        heading_command = True  # if true: compute ang vel command from heading error
 
         class ranges(LeggedRobotCfg.commands.ranges):
-            lin_vel_x = [-0.2, 0.2]  # min max [m/s]
+            lin_vel_x = [0, 0.3]  # min max [m/s]
             lin_vel_y = [-0.15, 0.15]  # min max [m/s]
-            ang_vel_yaw = [-0.07, 0.07]  # min max [rad/s]
+            ang_vel_yaw = [-0.1, 0.1]  # min max [rad/s]s
+            heading = [0, 0]
 
     class init_state(LeggedRobotCfg.init_state):
         pos = [0.0, 0.0, 0.19]  # x,y,z [m]
@@ -45,19 +46,6 @@ class BdxRoughCfg(LeggedRobotCfg):
 
         # PD Drive parameters:
         stiffness = {
-            "hip_yaw": 10.0,
-            "hip_roll": 10.0,
-            "hip_pitch": 10.0,
-            "knee": 10.0,
-            "ankle": 10.0,
-            "neck_pitch": 10.0,
-            "head_pitch": 10.0,
-            "head_yaw": 10.0,
-            "left_antenna": 10.0,
-            "right_antenna": 10.0,
-        }  # [N*m/rad]
-
-        damping = {
             "hip_yaw": 1.0,
             "hip_roll": 1.0,
             "hip_pitch": 1.0,
@@ -68,6 +56,19 @@ class BdxRoughCfg(LeggedRobotCfg):
             "head_yaw": 1.0,
             "left_antenna": 1.0,
             "right_antenna": 1.0,
+        }  # [N*m/rad]
+
+        damping = {
+            "hip_yaw": 0.5,
+            "hip_roll": 0.5,
+            "hip_pitch": 0.5,
+            "knee": 0.5,
+            "ankle": 0.5,
+            "neck_pitch": 0.5,
+            "head_pitch": 0.5,
+            "head_yaw": 0.5,
+            "left_antenna": 0.5,
+            "right_antenna": 0.5,
         }  # [N*m*s/rad]
 
         # action scale: target angle = actionScale * action + defaultAngle
@@ -102,7 +103,7 @@ class BdxRoughCfg(LeggedRobotCfg):
         class scales(LeggedRobotCfg.rewards.scales):
             termination = -200.0
             tracking_ang_vel = 1.0
-            tracking_lin_vel = 1.0
+            tracking_lin_vel = 2.0
             torques = -5.0e-6
             dof_acc = -2.0e-7
             lin_vel_z = -0.5
@@ -115,7 +116,7 @@ class BdxRoughCfg(LeggedRobotCfg):
             head_behavior = -0.1
             base_height = -0.25
             orientation = -0.1
-            close_to_init_pos = -0.2
+            close_to_init_pos = -0.15
             # stand_still = -1.0
 
     # This was pretty good
