@@ -102,6 +102,7 @@ class BdxRoughCfg(LeggedRobotCfg):
         class scales(LeggedRobotCfg.rewards.scales):
             termination = -200.0
             tracking_ang_vel = 1.0
+            tracking_lin_vel = 1.0
             torques = -5.0e-6
             dof_acc = -2.0e-7
             lin_vel_z = -0.5
@@ -114,7 +115,7 @@ class BdxRoughCfg(LeggedRobotCfg):
             head_behavior = -0.1
             base_height = -0.25
             orientation = -0.1
-            close_to_init_pos = -0.1
+            close_to_init_pos = -0.2
             # stand_still = -1.0
 
     # This was pretty good

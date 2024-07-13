@@ -42,9 +42,9 @@ from legged_gym.utils.xbox_controller import XboxController
 
 def xbox_input(xbox):
     inputs = xbox.read()
-    target_vx = -inputs["l_y"] * 0.8
-    target_vy = inputs["l_x"] * 0.05
-    target_yaw = -inputs["r_x"] * 0.5
+    target_vx = -inputs["l_y"] * 0.2
+    target_vy = inputs["l_x"] * 0.15
+    target_yaw = -inputs["r_x"] * 0.07
     return target_vx, target_vy, target_yaw
 
 
