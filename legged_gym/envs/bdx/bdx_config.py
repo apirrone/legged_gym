@@ -3,7 +3,7 @@ from legged_gym.envs.base.legged_robot_config import LeggedRobotCfg, LeggedRobot
 
 class BdxRoughCfg(LeggedRobotCfg):
     class env(LeggedRobotCfg.env):
-        num_envs = 10
+        num_envs = 1
         num_observations = 57
         num_actions = 15
 
@@ -17,7 +17,7 @@ class BdxRoughCfg(LeggedRobotCfg):
 
         class ranges(LeggedRobotCfg.commands.ranges):
             lin_vel_x = [-0.5, 0.5]  # min max [m/s]
-            lin_vel_y = [-0.05, 0.05]  # min max [m/s]
+            lin_vel_y = [-0.1, 0.1]  # min max [m/s]
             ang_vel_yaw = [-0.05, 0.05]  # min max [rad/s]
 
     class init_state(LeggedRobotCfg.init_state):
@@ -97,6 +97,7 @@ class BdxRoughCfg(LeggedRobotCfg):
         soft_torque_limit = 0.9
         max_contact_force = 300.0
         only_positive_rewards = False
+        base_height_target = 0.15
 
         class scales(LeggedRobotCfg.rewards.scales):
             termination = -200.0
