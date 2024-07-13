@@ -12,11 +12,13 @@ class BdxRoughCfg(LeggedRobotCfg):
         measure_heights = False
 
     class commands(LeggedRobotCfg.commands):
+        num_commands = 3  # default: lin_vel_x, lin_vel_y, ang_vel_yaw, heading (in heading mode ang_vel_yaw is recomputed from heading error)
+        heading_command = False  # if true: compute ang vel command from heading error
+
         class ranges(LeggedRobotCfg.commands.ranges):
-            lin_vel_x = [-0.5, 0.5]  # min max [m/s]
-            lin_vel_y = [-0.3, 0.3]  # min max [m/s]
-            ang_vel_yaw = [-0.05, 0.05]  # min max [rad/s]
-            heading = [-3.14, 3.14]
+            lin_vel_x = [-0.8, 0.8]  # min max [m/s]
+            lin_vel_y = [-0.8, 0.8]  # min max [m/s]
+            ang_vel_yaw = [-0.1, 0.1]  # min max [rad/s]
 
     class init_state(LeggedRobotCfg.init_state):
         pos = [0.0, 0.0, 0.19]  # x,y,z [m]
