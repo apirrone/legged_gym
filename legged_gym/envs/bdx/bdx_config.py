@@ -48,6 +48,11 @@ class BdxRoughCfg(LeggedRobotCfg):
             "hip_pitch": 50.0,
             "knee": 50.0,
             "ankle": 50.0,
+            "neck_pitch": 50.0,
+            "head_pitch": 50.0,
+            "head_yaw": 50.0,
+            "left_antenna": 50.0,
+            "right_antenna": 50.0,
         }  # [N*m/rad]
 
         damping = {
@@ -56,6 +61,11 @@ class BdxRoughCfg(LeggedRobotCfg):
             "hip_pitch": 1.0,
             "knee": 1.0,
             "ankle": 1.0,
+            "neck_pitch": 1.0,
+            "head_pitch": 1.0,
+            "head_yaw": 1.0,
+            "left_antenna": 1.0,
+            "right_antenna": 1.0,
         }  # [N*m*s/rad]
 
         # action scale: target angle = actionScale * action + defaultAngle
