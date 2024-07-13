@@ -3,7 +3,7 @@ from legged_gym.envs.base.legged_robot_config import LeggedRobotCfg, LeggedRobot
 
 class BdxRoughCfg(LeggedRobotCfg):
     class env(LeggedRobotCfg.env):
-        num_envs = 10
+        num_envs = 2
         num_observations = 57
         num_actions = 15
 
@@ -11,8 +11,15 @@ class BdxRoughCfg(LeggedRobotCfg):
         mesh_type = "plane"
         measure_heights = False
 
+    class commands(LeggedRobotCfg.commands):
+        class ranges(LeggedRobotCfg.commands.ranges):
+            lin_vel_x = [-0.05, 0.05]  # min max [m/s]
+            lin_vel_y = [-0.05, 0.05]  # min max [m/s]
+            ang_vel_yaw = [-0.1, 0.1]  # min max [rad/s]
+            heading = [-3.14, 3.14]
+
     class init_state(LeggedRobotCfg.init_state):
-        pos = [0.0, 0.0, 0.21]  # x,y,z [m]
+        pos = [0.0, 0.0, 0.19]  # x,y,z [m]
         default_joint_angles = {  # = target angles [rad] when action = 0.0
             "right_hip_yaw": -0.014,
             "right_hip_roll": 0.08,
@@ -91,6 +98,7 @@ class BdxRoughCfg(LeggedRobotCfg):
             dof_vel = -0.0
             ang_vel_xy = -0.0
             feet_contact_forces = -0.0
+            head_behavior = 0.1
 
 
 class BdxRoughCfgPPO(LeggedRobotCfgPPO):

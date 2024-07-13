@@ -15,3 +15,9 @@ class Bdx(LeggedRobot):
         contacts = self.contact_forces[:, self.feet_indices, 2] > 0.1
         single_contact = torch.sum(1.0 * contacts, dim=1) == 1
         return 1.0 * single_contact
+
+    def _reward_head_behavior(self):
+        head_default_pos = self.default_dof_pos[:, -5:]
+        head_pos = self.dof_pos[:, -5:]
+        head_diff = torch.abs(head_pos - head_default_pos)
+        return -torch.sum(head_diff)
