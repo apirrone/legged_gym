@@ -119,7 +119,7 @@ class BdxRoughCfg(LeggedRobotCfg):
 
 class BdxRoughCfgPPO(LeggedRobotCfgPPO):
     class runner(LeggedRobotCfgPPO.runner):
-        run_name = ""
+        run_name = "bdx_walk"
         experiment_name = "rough_bdx"
 
     class algorithm(LeggedRobotCfgPPO.algorithm):
