@@ -25,6 +25,9 @@ class Bdx(LeggedRobot):
 
     def _reward_close_to_init_pos(self):
         # penalize the dofs for being too far from the default position
+        # If the command is zero, increase the penalty
+
+        no_motion_factor = 1 + 4 * torch.norm(self.commands[:, :2], dim=1) < 0.01
 
         diff = torch.square(self.dof_pos - self.default_dof_pos)
-        return torch.sum(diff, dim=1)
+        return torch.sum(diff, dim=1) * no_motion_factor

@@ -115,7 +115,7 @@ class BdxRoughCfg(LeggedRobotCfg):
             base_height = -0.25
             orientation = -0.1
             close_to_init_pos = -0.1
-            stand_still = -1.0
+            # stand_still = -1.0
 
     # This was pretty good
     # class rewards(LeggedRobotCfg.rewards):
