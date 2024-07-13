@@ -32,7 +32,8 @@ class Bdx(LeggedRobot):
 
         return torch.sum(diff, dim=1) * no_motion_factor
 
-    # def _reward_feet_spacing(self):
-    #     # penalize the feet for being too far apart
-
-    #     nominal_spacing = 0.12
+    # def _reward_gait(self):
+    #     gait_period = 1.0
+    #     gait_phase = torch.fmod(self.sim_time, gait_period) / gait_period
+    #     print("GAIT PHASE", gait_phase)
+    #     return 0
